@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+			<!-- start page content -->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+
+					<div class="page-bar">
+						<div class="page-title-breadcrumb">
+							<div class=" pull-left">
+								<div class="page-title">Add Student</div>
+							</div>
+							<ol class="breadcrumb page-breadcrumb pull-right">
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li><a class="parent-item" href="">Student</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li class="active">Add Student</li>
+							</ol>
+						</div>
+					</div>
+       <form action="{% url 'add_student' %}" method="POST">
+				 {% csrf_token %}
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card-box">
+								<div class="card-head">
+									<header>Basic Information</header>
+								</div>
+								<div class="card-body row">
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="text" name="student_name" id="txtFirstName">
+											<label class="mdl-textfield__label">First Name</label>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="text" name="student_lname" id="txtLasttName">
+											<label class="mdl-textfield__label">Last Name</label>
+										</div>
+									</div>
+
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="text" name="reg_date" id="date">
+											<label class="mdl-textfield__label">Registration Date</label>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+											<input class="mdl-textfield__input" name="class_name" type="text" id="list2" value="" readonly tabIndex="-1">
+											<label for="list2" class="pull-right margin-0">
+												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+											</label>
+											<label for="list2" class="mdl-textfield__label">Class Name</label>
+											<ul data-mdl-for="list2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+												<li class="mdl-menu__item" data-val="OT">lkg</li>
+												<li class="mdl-menu__item" data-val="OT">ukg</li>
+												<li class="mdl-menu__item" data-val="DE">I Standard</li>
+												<li class="mdl-menu__item" data-val="DE">II Standard</li>
+												<li class="mdl-menu__item" data-val="DE">III Standard</li>
+												<li class="mdl-menu__item" data-val="BY">IV Standard</li>
+												<li class="mdl-menu__item" data-val="BY">V Standard</li>
+												<li class="mdl-menu__item" data-val="BY">VI Standard</li>
+												<li class="mdl-menu__item" data-val="OT">VII Standard</li>
+												<li class="mdl-menu__item" data-val="OT">VIII Standard</li>
+												<li class="mdl-menu__item" data-val="OT">IX Standard</li>
+												<li class="mdl-menu__item" data-val="OT">X Standard</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+											<input class="mdl-textfield__input" type="text" name="gender" id="sample2" value="" readonly tabIndex="-1">
+											<label for="sample2" class="pull-right margin-0">
+												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+											</label>
+											<label for="sample2" class="mdl-textfield__label">Gender</label>
+											<ul data-mdl-for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+												<li class="mdl-menu__item" data-val="DE">Male</li>
+												<li class="mdl-menu__item" data-val="BY">Female</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" name="Mobile" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="text5">
+											<label class="mdl-textfield__label" for="text5">Mobile Number</label>
+											<span class="mdl-textfield__error">Number required!</span>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" name="parents_name" type="text" id="txtParentName">
+											<label class="mdl-textfield__label">Parents Name</label>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" name="parents_mob_number" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="txtPNo">
+											<label class="mdl-textfield__label" for="txtPNo">Parents Mobile Number</label>
+											<span class="mdl-textfield__error">Number required!</span>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" name="dob" type="text" id="dateOfBirth">
+											<label class="mdl-textfield__label">Birth Date</label>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" name="blood_group" type="text" id="txtBloodGroup">
+											<label class="mdl-textfield__label">Blood Group</label>
+										</div>
+									</div>
+									<div class="col-lg-12 p-t-20">
+										<div class="mdl-textfield mdl-js-textfield txt-full-width">
+											<textarea class="mdl-textfield__input" name="addr" rows="4" id="text7"></textarea>
+											<label class="mdl-textfield__label" for="text7">Address</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				<div class="row">
+ 					 <div class="col-sm-12">
+ 						 <div class="card-box">
+ 							 <div class="card-head">
+ 								 <header>Student Additional Information</header>
+ 							 </div>
+ 							 <div class="card-body row">
+ 								 <div class="col-lg-6 p-t-20">
+									 <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch_8">
+										 <input type="checkbox" name="RTI" id="switch_8" class="mdl-switch__input">
+										 <span class="mdl-switch__label">Student Comming Under RTI Scheme : (No/Yes)</span>
+									 </label>
+ 								 </div>
+ 								 <div class="col-lg-6 p-t-20">
+									 <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="showCheckoutHistory">
+										 <input type="checkbox" name="sibling" id="showCheckoutHistory" class="mdl-switch__input">
+										 <span class="mdl-switch__label">Do You have any sibling in this school : (No/Yes)</span>
+									 </label>
+ 								 </div><br/><br/><br/><br/>
+								 <script>
+						$(function(){
+							$("#sib_class").hide();
+							$("#sib_rel").hide();
+							$("#sib_mob").hide();
+							$("#sib_name").hide();
+	 							$("#showCheckoutHistory").change(function(event){
+	 							        if (this.checked){
+												$(this).attr('value', 'True');
+													$("#sib_class").show();
+													$("#sib_rel").show();
+													$("#sib_mob").show();
+													$("#sib_name").show();
+	 							        } else {
+												$(this).attr('value', 'False');
+													$("#sib_class").hide();
+													$("#sib_rel").hide();
+													$("#sib_mob").hide();
+													$("#sib_name").hide();
+
+	 							        }
+												//var res1 = $('#showCheckoutHistory').val();
+												//alert(res1);
+	 							    });
+
+					      $("#switch_8").on('change', function() {
+								  if ($(this).is(':checked')) {
+								    $(this).attr('value', 'True');
+								  } else {
+								    $(this).attr('value', 'False');
+								  }
+
+								  //var res = $('#switch_8').val();
+
+								   });
+							});
+	 							</script>
+
+ 								 <div class="col-lg-6 p-t-20" id="sib_class" >
+ 									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+ 										 <input class="mdl-textfield__input" name="sib_class" type="text" id="sib_rel_cls" value="" readonly tabIndex="-1">
+ 										 <label for="sib_rel_cls" class="pull-right margin-0">
+ 											 <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+ 										 </label>
+ 										 <label for="sib_rel_cls" class="mdl-textfield__label">Sibling Class</label>
+ 										 <ul data-mdl-for="sib_rel_cls" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+											 <li class="mdl-menu__item" data-val="OT">lkg</li>
+											 <li class="mdl-menu__item" data-val="OT">ukg</li>
+											 <li class="mdl-menu__item" data-val="DE">I Standard</li>
+											 <li class="mdl-menu__item" data-val="DE">II Standard</li>
+											 <li class="mdl-menu__item" data-val="DE">III Standard</li>
+											 <li class="mdl-menu__item" data-val="BY">IV Standard</li>
+											 <li class="mdl-menu__item" data-val="BY">V Standard</li>
+											 <li class="mdl-menu__item" data-val="BY">VI Standard</li>
+											 <li class="mdl-menu__item" data-val="OT">VII Standard</li>
+											 <li class="mdl-menu__item" data-val="OT">VIII Standard</li>
+											 <li class="mdl-menu__item" data-val="OT">IX Standard</li>
+											 <li class="mdl-menu__item" data-val="OT">X Standard</li>
+ 										 </ul>
+ 									 </div>
+ 								 </div>
+ 								 <div class="col-lg-6 p-t-20" id="sib_rel">
+ 									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+ 										 <input class="mdl-textfield__input" name="sib_rel" type="text" id="sib_relation" value="" readonly tabIndex="-1">
+ 										 <label for="sib_relation" class="pull-right margin-0">
+ 											 <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+ 										 </label>
+ 										 <label for="sib_relation" class="mdl-textfield__label">Sibling Relation</label>
+ 										 <ul data-mdl-for="sib_relation" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+ 											 <li class="mdl-menu__item" data-val="DE">Brother</li>
+ 											 <li class="mdl-menu__item" data-val="BY">Sister</li>
+ 										 </ul>
+ 									 </div>
+ 								 </div>
+ 								 <div class="col-lg-6 p-t-20" id="sib_mob">
+ 									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+ 										 <input class="mdl-textfield__input" name="sib_mob" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sib_mob">
+ 										 <label class="mdl-textfield__label" for="sib_mob">Sibling Mobile Number</label>
+ 										 <span class="mdl-textfield__error">Number required!</span>
+ 									 </div>
+ 								 </div>
+ 								 <div class="col-lg-6 p-t-20" id="sib_name">
+ 									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+ 										 <input class="mdl-textfield__input" name="sib_name" type="text" id="Sib_Name">
+ 										 <label class="mdl-textfield__label" for="Sib_Name">Sibling Name</label>
+ 									 </div>
+ 								 </div>
+
+
+								 <div class="col-lg-2 p-t-20">
+									 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+										 <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="monthly">
+										 <span class="mdl-radio__label">Monthly</span>
+									 </label>
+								 </div>
+								 <div class="col-lg-2 p-t-20">
+									 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+										 <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="yearly" checked>
+										 <span class="mdl-radio__label">Yearly</span>
+									 </label>
+								 </div>
+								 <div class="col-lg-2 p-t-20">
+									 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+										 <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="session">
+										 <span class="mdl-radio__label">Session</span>
+									 </label>
+								 </div>
+
+								 <div class="col-lg-12 p-t-20">
+									 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+										 <input class="mdl-textfield__input" name="fees_amt" type="text" id="amount">
+										 <label class="mdl-textfield__label">Ammount</label>
+									 </div>
+								 </div>
+
+								 <div class="col-lg-6 p-t-20">
+							 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+							 			<input class="mdl-textfield__input" name="ref_no" type="text" id="date">
+							 			<label class="mdl-textfield__label">Refference Number</label>
+							 		</div>
+							 	</div>
+
+
+
+								<div class="col-lg-6 p-t-20">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+										<input class="mdl-textfield__input" name="pay_type" type="text" id="list9" value="" readonly tabIndex="-1">
+										<label for="list9" class="pull-right margin-0">
+											<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+										</label>
+										<label for="list9" class="mdl-textfield__label">Payment Type</label>
+										<ul data-mdl-for="list9" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+											<li class="mdl-menu__item" data-val="DE">Cash</li>
+											<li class="mdl-menu__item" data-val="BY">Cheque</li>
+											<li class="mdl-menu__item" data-val="BY">Online Transfer</li>
+											<li class="mdl-menu__item" data-val="BY">Draft</li>
+											<li class="mdl-menu__item" data-val="OT">Other</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="col-lg-6 p-t-20">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+										<input class="mdl-textfield__input" name="pay_stutus" type="text" id="fees_status" value="" readonly tabIndex="-1">
+										<label for="fees_status_label" class="pull-right margin-0">
+											<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+										</label>
+										<label for="fees_status_label" class="mdl-textfield__label">Status</label>
+										<ul data-mdl-for="fees_status" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+											<li class="mdl-menu__item" data-val="DE">Paid</li>
+											<li class="mdl-menu__item" data-val="BY">Unpaid</li>
+											<li class="mdl-menu__item" data-val="BY">Pending</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="col-lg-12 p-t-20">
+									<div class="mdl-textfield mdl-js-textfield txt-full-width">
+										<textarea class="mdl-textfield__input" name="pay_detail" rows="4" id="text7"></textarea>
+										<label class="mdl-textfield__label" for="text7">Payment Details</label>
+									</div>
+								</div>
+
+								<div class="col-lg-12 p-t-20 text-center">
+ 								 <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Submit</button>
+ 								 <a href="{% url 'studentall' %}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Cancel</a>
+ 							 </div>
+
+
+
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+			 </form>
+
+				</div>
+			</div>
+			<!-- end page content -->
+
+{% endblock %}

@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+			<!-- start page content -->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+					<div class="page-bar">
+						<div class="page-title-breadcrumb">
+							<div class=" pull-left">
+								<div class="page-title">Student Profile</div>
+							</div>
+							<ol class="breadcrumb page-breadcrumb pull-right">
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{% url 'index' %}">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li><a class="parent-item" href="{% url 'studentall' %}">Students</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li class="active">Student Profile</li>
+							</ol>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<!-- BEGIN PROFILE SIDEBAR -->
+							<div class="profile-sidebar">
+								<div class="card card-topline-aqua">
+									<div class="card-body no-padding height-9">
+										<div class="row">
+											<div class="profile-userpic">
+												<img src="../assets/img/std/std3.jpg" class="img-responsive" alt=""> </div>
+										</div>
+										<div class="profile-usertitle">
+											<div class="profile-usertitle-name">{{student_info.student_name|upper}}</div>
+										</div>
+										<ul class="list-group list-group-unbordered">
+											<li class="list-group-item">
+												<b>First Name</b> <a class="pull-right">{{student_info.student_name}}</a>
+											</li>
+											<li class="list-group-item">
+												<b>Last Name</b> <a class="pull-right">{{student_info.student_lastname}}</a>
+											</li>
+											<li class="list-group-item">
+												<b>Gender</b> <a class="pull-right">{{student_info.gender_type}}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-head card-topline-aqua">
+										<header>About -> {{student_info.student_name}}</header>
+									</div>
+									<div class="card-body no-padding height-9">
+										<div class="profile-desc">
+											Hello I am Sarah Smith a student in Sanjivni College Surat. I love to study with all my class friends and
+											professors.
+										</div>
+										<ul class="list-group list-group-unbordered">
+											<li class="list-group-item">
+												<b>Registration Date</b>
+												<div class="profile-desc-item pull-right">{{student_info.student_name}}</div>
+											</li>
+											<li class="list-group-item">
+												<b>Class Name</b>
+												<div class="profile-desc-item pull-right">{{student_info.class_name}}</div>
+											</li>
+											<li class="list-group-item">
+												<b>Parents Name </b>
+												<div class="profile-desc-item pull-right">{{student_info.parents_name}}</div>
+											</li>
+											<li class="list-group-item">
+												<b>Mobile number</b>
+												<div class="profile-desc-item pull-right">{{student_info.parents_phone}}</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-head card-topline-aqua">
+										<header>Address</header>
+									</div>
+									<div class="card-body no-padding height-9">
+										<div class="row text-center m-t-10">
+											<div class="col-md-12">
+												<p>{{student_info.address}}
+													<br> Karnataka, India.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-head card-topline-aqua">
+										<header>Interest In</header>
+									</div>
+									<div class="card-body no-padding height-9">
+										<div class="work-monitor work-progress">
+											<div class="states">
+												<div class="info">
+													<div class="desc pull-left">Study</div>
+													<div class="percent pull-right">50%</div>
+												</div>
+												<div class="progress progress-xs">
+													<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="40"
+													 aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+														<span class="sr-only">50% </span>
+													</div>
+												</div>
+											</div>
+											<div class="states">
+												<div class="info">
+													<div class="desc pull-left">Cricket</div>
+													<div class="percent pull-right">85%</div>
+												</div>
+												<div class="progress progress-xs">
+													<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+													 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+														<span class="sr-only">85% </span>
+													</div>
+												</div>
+											</div>
+											<div class="states">
+												<div class="info">
+													<div class="desc pull-left">Music</div>
+													<div class="percent pull-right">20%</div>
+												</div>
+												<div class="progress progress-xs">
+													<div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40"
+													 aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+														<span class="sr-only">20% </span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- END BEGIN PROFILE SIDEBAR -->
+							<!-- BEGIN PROFILE CONTENT -->
+							<div class="profile-content">
+								<div class="row">
+									<div class="card">
+										<div class="card-topline-aqua">
+											<header></header>
+										</div>
+										<div class="white-box">
+											<!-- Nav tabs -->
+											<div class="p-rl-20">
+												<ul class="nav customtab nav-tabs" role="tablist">
+													<li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">About Me</a></li>
+												</ul>
+											</div>
+											<!-- Tab panes -->
+											<div class="tab-content">
+												<div class="tab-pane active fontawesome-demo" id="tab1">
+													<div id="biography">
+														<div class="row">
+															<div class="col-md-3 col-6 b-r"> <strong>Full Name</strong>
+																<br>
+																<p class="text-muted">{{student_info.student_name}} {{student_info.student_lastname}}</p>
+															</div>
+															<div class="col-md-3 col-6 b-r"> <strong>Mobile</strong>
+																<br>
+																<p class="text-muted">{{student_info.mob_number}}</p>
+															</div>
+															<div class="col-md-3 col-6 b-r"> <strong>Email</strong>
+																<br>
+																<p class="text-muted">test@example.com</p>
+															</div>
+															<div class="col-md-3 col-6"> <strong>Location</strong>
+																<br>
+																<p class="text-muted">{{student_info.address}}</p>
+															</div>
+														</div>
+														<br>
+														<h4 class="font-bold">Additional Information</h4>
+														<hr>
+														<ul>
+															<li class="list-group-item">
+																<b>Birth Date</b>
+																<div class="profile-desc-item pull-right">{{student_info.Birth_date}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Blood Group</b>
+																<div class="profile-desc-item pull-right">{{student_info.Blood_group}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Student Under RTI</b>
+																<div class="profile-desc-item pull-right">{{student_info.rti}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Student has Sibling</b>
+																<div class="profile-desc-item pull-right">{{student_info.sibling}}</div>
+															</li>
+															{% if student_info.sibling == True %}
+															<li class="list-group-item">
+																<b>Sibling Class Name</b>
+																<div class="profile-desc-item pull-right">{{student_info.sib_class_name}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Sibling Relation</b>
+																<div class="profile-desc-item pull-right">{{student_info.sib_rel_name}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Sibling Name</b>
+																<div class="profile-desc-item pull-right">{{student_info.sib_name}}</div>
+															</li>
+															{% endif %}
+														</ul>
+
+														<br>
+														<h4 class="font-bold">Fees Information</h4>
+														<hr>
+														<ul>
+															<li class="list-group-item">
+																<b>Payment Choice</b>
+																<div class="profile-desc-item pull-right">{{student_info.pay_choice}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Fees Amount</b>
+																<div class="profile-desc-item pull-right">{{student_info.fees_amount}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Payment Type</b>
+																<div class="profile-desc-item pull-right">{{student_info.pay_type}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Payment Status</b>
+																<div class="profile-desc-item pull-right">{{student_info.pay_status}}</div>
+															</li>
+															<li class="list-group-item">
+																<b>Student Refference Number</b>
+																<div class="profile-desc-item pull-right">{{student_info.ref_number}}</div>
+															</li>
+														</ul>
+
+														<br>
+														<h4 class="font-bold">Certificates</h4>
+														<hr>
+														<ul>
+															<li>1st Prise in Music competition</li>
+															<li>1st Prise in Acting & Drama</li>
+															<li>Gold Medal in Betchler in Arts</li>
+														</ul>
+														<br>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- END PROFILE CONTENT -->
+						</div>
+					</div>
+				</div>
+				<!-- end page content -->
+
+{% endblock %}
